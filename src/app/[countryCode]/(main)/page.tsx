@@ -9,14 +9,11 @@ import { cache } from "react"
 
 export const metadata: Metadata = {
   title: "Medusa Next.js Starter Template",
-  description:
-    "A performant frontend ecommerce starter template with Next.js 14 and Medusa.",
+  description: "A performant frontend ecommerce starter template with Next.js 14 and Medusa.",
 }
 
-const getCollectionsWithProducts = cache(
-  async (
-    countryCode: string
-  ): Promise<ProductCollectionWithPreviews[] | null> => {
+const getCollectionsWithProducts = cache(async (countryCode: string): Promise<ProductCollectionWithPreviews[] | null> => {
+
     const { collections } = await getCollectionsList(0, 3)
 
     if (!collections) {
