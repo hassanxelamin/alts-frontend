@@ -3,7 +3,7 @@
 import React, { useRef, useState, useTransition } from 'react'
 import { Input } from '../ui/input'
 import { Button } from '../ui/button'
-import { Loader2, Search } from 'lucide-react'
+import { Loader2, Camera } from 'lucide-react'
 import { useRouter, useSearchParams } from 'next/navigation';
 
 const SearchBar = () => {
@@ -25,8 +25,10 @@ const SearchBar = () => {
     }
 
     return (
-        <div className='relative w-full h-14 flex flex-col bg-white'>
-            <div className='relative h-14 z-10 rounded-md'>
+        <div className='w-[592px] min-h-[48px] relative flex items-center'>
+                <div className="flex justify-center items-center bg-black rounded-[30px] w-[113px] h-[39px] absolute left-[5px] z-10">
+                    <div className='text-white font-bold'>alts.com/</div>
+                </div>
                 <Input 
                     disabled={isSearching}
                     value={query}
@@ -40,12 +42,12 @@ const SearchBar = () => {
                         }
                     }} 
                     ref={inputRef} 
-                    className="absolute inset-0 h-full" 
+                    placeholder='enter link or just search...'
+                    className="pl-[125px] pr-[48px] h-full rounded-[30px] border-black" 
                 />
                 <Button disabled={isSearching} size='sm' onClick={search} className='absolute right-0 inset-y-0 h-full rounded-1-none'>
-                    {isSearching ? <Loader2 className='h-6 w-6 animate-spin' /> : <Search className='h-6 w-6' />}
+                    {isSearching ? <Loader2 className='h-6 w-6 animate-spin' /> : <Camera className='h-6 w-6' />}
                 </Button>
-            </div>
         </div>
     )
 }
